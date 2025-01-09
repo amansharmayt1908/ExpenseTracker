@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Calculator</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="box">
+        <div class="expense-display">
+            <div class="expense-header">
+                <h2>Recent Expenses</h2>
+                <button class="show-all-btn">Show All</button>
+            </div>
+            <div class="recent-expenses">
+                <!-- Placeholder for recent expenses -->
+            </div>
+            <div class="expense-input-group">
+                <!-- <input type="text" id="finalamount" name="finalamount" value="0" readonly> -->
+                <input type="text" class="expense-reason" id="reason" name="reason" placeholder="Enter expense reason">
+            </div>
+        </div>
+        <!-- <form action="/addData"> -->
+            <div class="calculator">
+                <div class="display">
+                    <div class="calc-history">
+                        <span class="first-number"></span>
+                        <span class="operator-display"></span>
+                        <span class="second-number"></span>
+                    </div>
+
+                    <input type="text" id="amount" name="amount" class="calc-display" readonly value="0">
+                </div>
+                <div class="keypad">
+                    <button class="key clear">C</button>
+                    <button class="key operator">+</button>
+                    <button class="key operator">-</button>
+                    <button class="key operator">×</button>
+                    <button class="key">7</button>
+                    <button class="key">8</button>
+                    <button class="key">9</button>
+                    <button class="key operator">÷</button>
+                    <button class="key">4</button>
+                    <button class="key">5</button>
+                    <button class="key">6</button>
+                    <button class="key equal">=</button>
+                    <button class="key">1</button>
+                    <button class="key">2</button>
+                    <button class="key">3</button>
+                    <button class="key">0</button>
+                </div>
+                <button class="add-expense-btn" onclick="">Add Expense</button>
+            </div>
+        <!-- </form> -->
+    </div>
+    <script src="main.js"></script>
+    <script src="addexpense.js"></script>
+</body>
+
+</html>
