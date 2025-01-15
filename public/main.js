@@ -69,8 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show all expenses functionality
     showAllBtn.addEventListener('click', () => {
+        
         if (showAllBtn.textContent === 'Show All') {
-            showAllBtn.textContent = 'Show Recent';
+            // showAllBtn.textContent = 'Show Recent';
             recentExpenses.style.maxHeight = '100%';
         } else {
             showAllBtn.textContent = 'Show All';
@@ -129,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchAndDisplayExpenses() {
         try {
-            const response = await fetch('/getExpenses');
+            const response = await fetch('/getAllExpenses');
             const expenses = await response.json();
             
             // Clear existing expenses

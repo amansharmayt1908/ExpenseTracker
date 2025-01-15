@@ -75,15 +75,29 @@ app.post('/addExpense', async (req, res) => {
 });
 
 // Get expenses endpoint
-app.get('/getExpenses', async (req, res) => {
+// app.get('/getExpenses', async (req, res) => {
+//     if (!req.session.userId) {
+//         return res.status(401).json({ message: 'Please login first' });
+//     }
+
+//     try {
+//         const expenses = await Expense.find({ userId: req.session.userId })
+//             .sort({ date: -1 })
+//             .limit(10);
+//         res.json(expenses);
+//     } catch (error) {
+//         console.error('Error fetching expenses:', error);
+//         res.status(500).json({ message: 'Server error' });
+//     }
+// });
+app.get('/getAllExpenses', async (req, res) => {
     if (!req.session.userId) {
         return res.status(401).json({ message: 'Please login first' });
     }
 
     try {
         const expenses = await Expense.find({ userId: req.session.userId })
-            .sort({ date: -1 })
-            .limit(10);
+            .sort({ date: -1 });
         res.json(expenses);
     } catch (error) {
         console.error('Error fetching expenses:', error);
@@ -155,6 +169,13 @@ app.get('/Expense-Tracker', (req, res) => {
     }
     res.sendFile(path.join(__dirname, 'public', 'main.html'));
 });
+app.get('/allExpense', (req, res) => {
+    if (!req.session.userId) {
+        return res.redirect('/');
+    }
+    res.sendFile(path.join(__dirname, 'public', 'allExpense.html'));
+});
+
 
 // Logout endpoint
 app.post('/logout', (req, res) => {
@@ -166,6 +187,7 @@ app.post('/logout', (req, res) => {
         res.json({ success: true });
     });
 });
+
 
 // Error handling middleware
 app.use((err, req, res, next) => {
